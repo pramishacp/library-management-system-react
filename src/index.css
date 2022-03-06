@@ -50,3 +50,18 @@ ul.header li a {
 .active {
   background-color: #ecc393;
 }
+
+span {
+  background-color: #a1c018;
+}
+
+button {
+  background-color: rgb(242, 245, 201);
+  color: black;
+  border: 2px solid #4CAF50;
+}
+
+button:hover {
+  background-color: #4CAF50; /* Green */
+  color: white;
+}
