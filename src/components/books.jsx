@@ -12,15 +12,19 @@ class Books extends Component {
     this.setState({ books });
   }
 
+  handleBorrow = (id) => {
+    console.log('handle borrow clicked', id)
+  }
+
   render() {
     const { length } = this.state.books;
     const { books } = this.state;
-
+    
     return (
       <React.Fragment>
         <h2>Books</h2>
         <p>{length} books in the library</p>
-        {length === 0 ? null : <BookList books={books}/>}
+        {length === 0 ? null : <BookList books={books} onBorrow={this.handleBorrow}/>}
       </React.Fragment>
     );
   }
