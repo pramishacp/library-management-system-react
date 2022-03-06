@@ -1,25 +1,16 @@
 import React from "react";
+import BookItem from "./bookItem";
 
-const BookList = ({books}) => {
+const BookList = ({ books }) => {
   return (
-      <React.Fragment>
-        <ul>
-            {books.map((book) => {
-              return (
-                <li key={book.id}>
-                  <h6>
-                    {book.name}{" "}
-                    <span className="badge-primary">{book.stock} in stock</span>
-                  </h6>
-                  <div>
-                    <button>Borrow</button>
-                  </div>
-                </li>
-              );
-            })}
-        </ul>
-      </React.Fragment>
-  )
+    <React.Fragment>
+      <ul>
+        {books.map((book) => {
+          return <BookItem id={book.id} name={book.name} stock={book.stock} />;
+        })}
+      </ul>
+    </React.Fragment>
+  );
 };
 
 export default BookList;
