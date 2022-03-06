@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { getBooks } from "../services/bookService";
+import BookList from "./bookList";
 
 class Books extends Component {
   state = {
@@ -19,23 +20,7 @@ class Books extends Component {
       <React.Fragment>
         <h2>Books</h2>
         <p>{length} books in the library</p>
-        {length === 0 ? null : (
-          <ul>
-            {books.map((book) => {
-              return (
-                <li key={book.id}>
-                  <h6>
-                    {book.name}{" "}
-                    <span className="badge-primary">{book.stock} in stock</span>
-                  </h6>
-                  <div>
-                    <button>Borrow</button>
-                  </div>
-                </li>
-              );
-            })}
-          </ul>
-        )}
+        {length === 0 ? null : <BookList books={books}/>}
       </React.Fragment>
     );
   }
