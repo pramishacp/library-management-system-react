@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, Navigate, Routes, Link } from "react-router-dom";
+import { Route, Navigate, Routes, Link, NavLink } from "react-router-dom";
 
 import Home from "./components/home";
 import Books from "./components/books";
@@ -14,13 +14,13 @@ function App() {
       <h1>Library</h1>
       <ul className="header">
         <li>
-          <Link to="/">Home</Link>
+          <NavLink exact to="/home">Home</NavLink>
         </li>
         <li>
-          <Link to="/books">All Books</Link>
+          <NavLink to="/books">All Books</NavLink>
         </li>
         <li>
-          <Link to="/borrows">All Borrowed</Link>
+          <NavLink to="/borrows">All Borrowed</NavLink>
         </li>
       </ul>
       <div className="content">
