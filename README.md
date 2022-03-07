@@ -16,7 +16,7 @@ git
 ### RUN
 ```
 # npm install
-# Update .env.development with your backend url
+# Update .env.development with your backend url. Note: Your backend should be running in the background.
 # npm start
 ```
 ### Test
