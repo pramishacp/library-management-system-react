@@ -13,11 +13,13 @@ import "./App.css";
 function App() {
   return (
     <React.Fragment>
-       <ToastContainer />
+      <ToastContainer />
       <h1>Library</h1>
       <ul className="header">
         <li>
-          <NavLink exact="true" to="/home">Home</NavLink>
+          <NavLink exact="true" to="/home">
+            Home
+          </NavLink>
         </li>
         <li>
           <NavLink to="/books">All Books</NavLink>

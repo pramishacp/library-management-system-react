@@ -1,7 +1,8 @@
 import React, { Component } from "react";
+import { toast } from "react-toastify";
 
 import BorrowList from "./borrowList";
-import { findBorrowsByUserId } from "../services/borrowService";
+import { findBorrowsByUserId, returnBook } from "../services/borrowService";
 
 class Borrows extends Component {
   state = {
@@ -13,8 +14,21 @@ class Borrows extends Component {
     this.setState({ borrows });
   }
 
-  handleReturn = (userId, bookId) => {
-    console.log('handleReturn called', userId, bookId)
+  handleReturn = async (borrowId, userId, bookId) => {
+    const originalBorrows = this.state.borrows;
+  
+    const borrows = originalBorrows.filter(b => b.id !== borrowId);
+    this.setState({ borrows });
+    
+    try {
+      await returnBook(userId, bookId);
+
+      toast.success('Book is returned successfully');
+    } catch (ex) {
+      toast.error(ex.response.data);
+
+      this.setState({ borrows: originalBorrows });
+    }
   }
 
   render() {

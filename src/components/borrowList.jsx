@@ -10,6 +10,7 @@ const BorrowList = ({ borrows, onReturn }) => {
           return (
             <BorrowItem
               key={borrow.id}
+              borrowId={borrow.id}
               bookName={borrow.bookName}
               bookId={borrow.bookId}
               userId={borrow.userId}
