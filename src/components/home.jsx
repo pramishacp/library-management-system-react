@@ -25,14 +25,14 @@ class Home extends Component {
 
   render() {
     const { length } = this.state.users;
-    const { users } = this.state;
+    const { users, currentUser } = this.state;
 
     return (
       <React.Fragment>
         <h2>Home</h2>
         <p>{length} users</p>
         {length === 0 ? null : (
-          <UserList users={users} onLogin={this.handleLogin} />
+          <UserList users={users} currentUser={currentUser} onLogin={this.handleLogin} />
         )}
       </React.Fragment>
     );
