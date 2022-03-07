@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import { findUsers } from "../services/userService";
 
-import UserList from "./usersList";
+import UserList from "./userList";
 
 class Home extends Component {
   state = {
