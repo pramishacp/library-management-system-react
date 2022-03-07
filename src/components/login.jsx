@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { findUsers } from "../services/userService";
 import auth from "../services/authService";
 
-import UserList from "./userList";
+import UserList from "./user/userList";
 
 class Login extends Component {
   state = {
