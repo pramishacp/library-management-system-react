@@ -8,10 +8,11 @@ const Home = ({ user }) => {
 
     window.location = "/login";
   }
+  
   return (
     <React.Fragment>
       <h2>Home</h2>
-      <p>Hey {user.name}!</p>
+      <p>Hey {user?.name} !</p>
       <div>
         <button onClick={() => onLogout()}>Logout</button>
       </div>

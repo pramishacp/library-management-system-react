@@ -2,11 +2,12 @@ import React, { Component } from "react";
 import { Route, Navigate, Routes, NavLink } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 
-import Login from "./components/login"
+import Login from "./components/login";
 import Home from "./components/home";
 import Books from "./components/books";
 import Borrows from "./components/borrows";
 import NotFound from "./components/notFound";
+import RequireAuth from "./components/requireAuth";
 
 import auth from "./services/authService";
 
@@ -23,8 +24,6 @@ class App extends Component {
 
   render() {
     const { user } = this.state;
-
-    console.log("APP-", user);
 
     return (
       <React.Fragment>
@@ -46,9 +45,30 @@ class App extends Component {
         <div className="content">
           <Routes>
             <Route path="/login" element={<Login />} />
-            <Route path="/home" element={<Home user={user} />} />
-            <Route path="/books" element={ <Books user={user} />} />
-            <Route path="/borrows" element={<Borrows user={user} />} />
+            <Route
+              path="/home"
+              element={
+                <RequireAuth>
+                  <Home user={user} />
+                </RequireAuth>
+              }
+            />
+            <Route
+              path="/books"
+              element={
+                <RequireAuth>
+                  <Books user={user} />
+                </RequireAuth>
+              }
+            />
+            <Route
+              path="/borrows"
+              element={
+                <RequireAuth>
+                  <Borrows user={user} />
+                </RequireAuth>
+              }
+            />
             <Route path="/not-found" element={<NotFound />} />
             <Route exact path="/" element={<Navigate to="/home" />} />
             <Route path="*" element={<Navigate to="/not-found" />} />

@@ -11,13 +11,11 @@ class Login extends Component {
   };
 
   async componentDidMount() {
-    console.log('Login- componentDidMount')
     const { data: users } = await findUsers();
     this.setState({ users });
   }
 
   handleLogin = async (user) => {
-    console.log('Login-handleLogin', user.name)
     await auth.login(user);
     window.location = "/";
   };
@@ -25,8 +23,6 @@ class Login extends Component {
   render() {
     const { length } = this.state.users;
     const { users } = this.state;
-
-    console.log('Home-', users)
 
     return (
       <React.Fragment>

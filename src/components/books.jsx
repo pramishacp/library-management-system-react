@@ -12,7 +12,6 @@ class Books extends Component {
 
   async componentDidMount() {
     const { data: books } = await getBooks();
-    console.log('books', books)
     this.setState({ books });
   }
 
@@ -23,7 +22,7 @@ class Books extends Component {
     this.setState({ books });
     
     try {
-      await borrowBook("ad72d41c-3e1d-4580-94e8-746031ef7eca", bookId);
+      await borrowBook(this.props.user?.id, bookId);
 
       toast.success('Book is borrowed successfully');
     } catch (ex) {
@@ -36,11 +35,12 @@ class Books extends Component {
   render() {
     const { length } = this.state.books;
     const { books } = this.state;
+    const {user} = this.props;
 
     return (
       <React.Fragment>
         <h2>Books</h2>
-        <p>Hey {this.props.user.name}! There are {length} books in the library</p>
+        <p>Hey {user?.name}! There are {length} books in the library</p>
         {length === 0 ? null : (
           <BookList books={books} onBorrow={this.handleBorrow} />
         )}

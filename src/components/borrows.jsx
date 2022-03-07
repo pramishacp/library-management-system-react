@@ -10,7 +10,7 @@ class Borrows extends Component {
   };
 
   async componentDidMount() {
-    const { data: borrows } = await findBorrowsByUserId("ad72d41c-3e1d-4580-94e8-746031ef7eca");
+    const { data: borrows } = await findBorrowsByUserId(this.props.user?.id);
     this.setState({ borrows });
   }
 
@@ -34,11 +34,12 @@ class Borrows extends Component {
   render() {
     const { length } = this.state.borrows;
     const { borrows } = this.state;
-
+    const {user} = this.props;
+    
     return (
       <React.Fragment>
         <h2>Borrows</h2>
-        <p>Hey {this.props.user.name}! You borrowed {length} books from the library</p>
+        <p>Hey {user?.name}! You borrowed {length} books from the library</p>
         {length === 0 ? null : <BorrowList borrows={borrows} onReturn={this.handleReturn}></BorrowList>}
       </React.Fragment>
     );
