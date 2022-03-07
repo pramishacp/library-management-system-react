@@ -38,7 +38,7 @@ class Borrows extends Component {
     return (
       <React.Fragment>
         <h2>Borrows</h2>
-        <p>{length} books borrowed from the library</p>
+        <p>Hey {this.props.user.name}! You borrowed {length} books from the library</p>
         {length === 0 ? null : <BorrowList borrows={borrows} onReturn={this.handleReturn}></BorrowList>}
       </React.Fragment>
     );

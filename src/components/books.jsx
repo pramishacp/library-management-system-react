@@ -40,7 +40,7 @@ class Books extends Component {
     return (
       <React.Fragment>
         <h2>Books</h2>
-        <p>{length} books in the library</p>
+        <p>Hey {this.props.user.name}! There are {length} books in the library</p>
         {length === 0 ? null : (
           <BookList books={books} onBorrow={this.handleBorrow} />
         )}

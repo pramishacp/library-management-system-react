@@ -1,12 +1,12 @@
 import React from "react";
 import UserItem from "./userItem";
 
-const UserList = ({ users, currentUser, onLogin }) => {
+const UserList = ({ users, onLogin }) => {
   return (
     <React.Fragment>
       <ol>
         {users.map((user) => {
-          return <UserItem key={user.id} user={user} currentUser={currentUser} onLogin={onLogin}/>;
+          return <UserItem key={user.id} user={user} onLogin={onLogin} />;
         })}
       </ol>
     </React.Fragment>
