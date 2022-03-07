@@ -13,6 +13,10 @@ class Borrows extends Component {
     this.setState({ borrows });
   }
 
+  handleReturn = (userId, bookId) => {
+    console.log('handleReturn called', userId, bookId)
+  }
+
   render() {
     const { length } = this.state.borrows;
     const { borrows } = this.state;
@@ -21,7 +25,7 @@ class Borrows extends Component {
       <React.Fragment>
         <h2>Borrows</h2>
         <p>{length} books borrowed from the library</p>
-        {length === 0 ? null : <BorrowList borrows={borrows}></BorrowList>}
+        {length === 0 ? null : <BorrowList borrows={borrows} onReturn={this.handleReturn}></BorrowList>}
       </React.Fragment>
     );
   }

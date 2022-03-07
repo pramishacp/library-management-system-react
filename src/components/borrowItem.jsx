@@ -1,12 +1,12 @@
 import React from "react";
 
-const BorrowItem = ({ bookName }) => {
+const BorrowItem = ({ userId, bookId, bookName, onReturn }) => {
   return (
     <React.Fragment>
       <li>
         <h6>{bookName}</h6>
         <div>
-          <button>Return</button>
+          <button onClick={() => onReturn(userId, bookId)}>Return</button>
         </div>
       </li>
     </React.Fragment>
