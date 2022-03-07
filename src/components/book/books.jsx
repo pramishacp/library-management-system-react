@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { toast } from "react-toastify";
 
-import { getBooks } from "../services/bookService";
-import { borrowBook } from "../services/borrowService";
+import { getBooks } from "../../services/bookService";
+import { borrowBook } from "../../services/borrowService";
 import BookList from "./bookList";
 
 class Books extends Component {
