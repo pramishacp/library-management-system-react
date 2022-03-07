@@ -2,6 +2,8 @@ import React, { Component } from "react";
 
 import { findUsers } from "../services/userService";
 
+import UserList from "./usersList";
+
 class Home extends Component {
   state = {
     users: [],
@@ -14,7 +16,7 @@ class Home extends Component {
   }
 
   handleLogin(user) {
-    console.log('handleLogin clicked', user)
+    console.log("handleLogin clicked", user);
   }
 
   render() {
@@ -24,24 +26,8 @@ class Home extends Component {
     return (
       <React.Fragment>
         <h2>Home</h2>
-        <p>
-          {length} users
-        </p>
-        {length === 0 ? null : (
-          <ol>
-            {users.map((user) => {
-              return (
-                <li key={user.id}>
-                  <div>
-                    <button onClick={() => this.handleLogin(user)}>
-                      {user.name}
-                    </button>
-                  </div>
-                </li>
-              );
-            })}
-          </ol>
-        )}
+        <p>{length} users</p>
+        {length === 0 ? null : <UserList users={users} onLogin={this.handleLogin}/>}
       </React.Fragment>
     );
   }
