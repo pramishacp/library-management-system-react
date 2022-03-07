@@ -1,16 +1,19 @@
 import React from "react";
 import { Route, Navigate, Routes, NavLink } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 
 import Home from "./components/home";
 import Books from "./components/books";
 import Borrows from "./components/borrows";
 import NotFound from "./components/notFound";
 
+import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 
 function App() {
   return (
     <React.Fragment>
+       <ToastContainer />
       <h1>Library</h1>
       <ul className="header">
         <li>
