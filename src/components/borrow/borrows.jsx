@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { toast } from "react-toastify";
 
 import BorrowList from "./borrowList";
-import { findBorrowsByUserId, returnBook } from "../services/borrowService";
+import { findBorrowsByUserId, returnBook } from "../../services/borrowService";
 
 class Borrows extends Component {
   state = {

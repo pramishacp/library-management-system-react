@@ -5,7 +5,7 @@ import { ToastContainer } from "react-toastify";
 import Login from "./components/login";
 import Home from "./components/home";
 import Books from "./components/book/books";
-import Borrows from "./components/borrows";
+import Borrows from "./components/borrow/borrows";
 import NotFound from "./components/notFound";
 import RequireAuth from "./components/requireAuth";
 
