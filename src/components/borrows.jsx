@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+
+import BorrowList from "./borrowList";
 import { findBorrowsByUserId } from "../services/borrowService";
 
 class Borrows extends Component {
@@ -19,22 +21,7 @@ class Borrows extends Component {
       <React.Fragment>
         <h2>Borrows</h2>
         <p>{length} books borrowed from the library</p>
-        {length === 0 ? null : (
-          <ul>
-            {borrows.map((borrow) => {
-              return (
-                <li key={borrow.id}>
-                  <h6>
-                    {borrow.bookName}
-                  </h6>
-                  <div>
-                    <button>Return</button>
-                  </div>
-                </li>
-              );
-            })}
-          </ul>
-        )}
+        {length === 0 ? null : <BorrowList borrows={borrows}></BorrowList>}
       </React.Fragment>
     );
   }
